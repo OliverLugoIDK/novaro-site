@@ -1,0 +1,1114 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Novaro | Originales al mayor y detal</title>
+  <meta name="description" content="Novaro es una marca comercial enfocada en productos originales al mayor y detal: suplementos, perfumes, relojes y accesorios." />
+  <style>
+    :root {
+      --bg: #0b0b0d;
+      --bg-soft: #111215;
+      --card: rgba(255,255,255,0.05);
+      --card-strong: rgba(255,255,255,0.08);
+      --line: rgba(255,255,255,0.12);
+      --text: #f5f1e8;
+      --muted: #b6b0a5;
+      --gold: #b08d57;
+      --gold-soft: rgba(176, 141, 87, 0.18);
+      --white: #ffffff;
+      --shadow: 0 20px 60px rgba(0,0,0,0.45);
+      --radius-xl: 28px;
+      --radius-lg: 22px;
+      --radius-md: 18px;
+      --max: 1200px;
+      --nav-h: 78px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      background:
+        radial-gradient(circle at 10% 10%, rgba(176,141,87,0.12), transparent 30%),
+        radial-gradient(circle at 90% 0%, rgba(255,255,255,0.05), transparent 25%),
+        linear-gradient(180deg, #080809 0%, #0c0d10 45%, #09090b 100%);
+      color: var(--text);
+      overflow-x: hidden;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+
+    .container {
+      width: min(calc(100% - 32px), var(--max));
+      margin: 0 auto;
+    }
+
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      height: var(--nav-h);
+      backdrop-filter: blur(18px);
+      background: rgba(8, 8, 10, 0.62);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .nav-inner {
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      letter-spacing: 0.24em;
+      font-weight: 700;
+      font-size: 0.95rem;
+    }
+
+    .brand-mark {
+      width: 38px;
+      height: 38px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, rgba(176,141,87,0.18), rgba(255,255,255,0.04));
+      border: 1px solid rgba(176,141,87,0.35);
+      display: grid;
+      place-items: center;
+      color: var(--gold);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.08);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      color: var(--muted);
+      font-size: 0.96rem;
+    }
+
+    .nav-links a:hover { color: var(--white); }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-height: 52px;
+      padding: 0 22px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      font-weight: 600;
+      transition: 260ms ease;
+      cursor: pointer;
+    }
+
+    .btn-primary {
+      color: #15120d;
+      background: linear-gradient(135deg, #d8bc8d 0%, #b08d57 100%);
+      box-shadow: 0 10px 30px rgba(176,141,87,0.28);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 18px 40px rgba(176,141,87,0.34);
+    }
+
+    .btn-ghost {
+      color: var(--text);
+      background: rgba(255,255,255,0.03);
+      border-color: rgba(255,255,255,0.1);
+    }
+
+    .btn-ghost:hover {
+      background: rgba(255,255,255,0.06);
+      border-color: rgba(255,255,255,0.16);
+      transform: translateY(-2px);
+    }
+
+    .hero {
+      position: relative;
+      min-height: calc(100vh - var(--nav-h));
+      display: grid;
+      align-items: center;
+      padding: 54px 0 80px;
+      isolation: isolate;
+    }
+
+    .hero::before,
+    .hero::after {
+      content: "";
+      position: absolute;
+      border-radius: 999px;
+      filter: blur(60px);
+      opacity: 0.6;
+      z-index: -1;
+      pointer-events: none;
+    }
+
+    .hero::before {
+      width: 420px;
+      height: 420px;
+      right: -100px;
+      top: 70px;
+      background: radial-gradient(circle, rgba(176,141,87,0.22), transparent 60%);
+      animation: floatGlow 9s ease-in-out infinite;
+    }
+
+    .hero::after {
+      width: 340px;
+      height: 340px;
+      left: -120px;
+      bottom: 20px;
+      background: radial-gradient(circle, rgba(255,255,255,0.08), transparent 58%);
+      animation: floatGlow 11s ease-in-out infinite reverse;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 34px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(176,141,87,0.24);
+      background: rgba(176,141,87,0.08);
+      color: #dbc395;
+      font-size: 0.88rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+    }
+
+    .hero h1 {
+      margin: 0;
+      font-size: clamp(2.9rem, 5.8vw, 6rem);
+      line-height: 0.96;
+      letter-spacing: -0.05em;
+      max-width: 13ch;
+    }
+
+    .hero h1 .accent {
+      color: #dfc496;
+      text-shadow: 0 0 30px rgba(176,141,87,0.18);
+    }
+
+    .hero p {
+      margin: 22px 0 0;
+      max-width: 58ch;
+      color: var(--muted);
+      font-size: 1.08rem;
+      line-height: 1.7;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 14px;
+      margin-top: 28px;
+      flex-wrap: wrap;
+    }
+
+    .hero-meta {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 28px;
+    }
+
+    .meta-card {
+      padding: 16px 18px;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.03);
+    }
+
+    .meta-card strong {
+      display: block;
+      font-size: 1.05rem;
+      color: var(--white);
+      margin-bottom: 6px;
+    }
+
+    .meta-card span {
+      color: var(--muted);
+      font-size: 0.92rem;
+      line-height: 1.4;
+    }
+
+    .hero-panel {
+      position: relative;
+      padding: 26px;
+      border-radius: 34px;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.025));
+      border: 1px solid rgba(255,255,255,0.08);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      min-height: 620px;
+    }
+
+    .hero-panel::before {
+      content: "";
+      position: absolute;
+      inset: -1px;
+      border-radius: inherit;
+      background: linear-gradient(140deg, rgba(176,141,87,0.28), transparent 32%, transparent 65%, rgba(255,255,255,0.08));
+      mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      mask-composite: exclude;
+      -webkit-mask-composite: xor;
+      padding: 1px;
+      pointer-events: none;
+    }
+
+    .orb {
+      position: absolute;
+      border-radius: 999px;
+      filter: blur(10px);
+      opacity: 0.9;
+    }
+
+    .orb.one {
+      width: 160px;
+      height: 160px;
+      right: 40px;
+      top: 28px;
+      background: radial-gradient(circle, rgba(176,141,87,0.32), transparent 65%);
+      animation: floatSlow 8s ease-in-out infinite;
+    }
+
+    .orb.two {
+      width: 220px;
+      height: 220px;
+      left: -70px;
+      bottom: -70px;
+      background: radial-gradient(circle, rgba(255,255,255,0.09), transparent 70%);
+      animation: floatSlow 10s ease-in-out infinite reverse;
+    }
+
+    .dashboard {
+      position: relative;
+      height: 100%;
+      display: grid;
+      grid-template-rows: auto 1fr auto;
+      gap: 18px;
+      z-index: 1;
+    }
+
+    .tag-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .tag {
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.045);
+      border: 1px solid rgba(255,255,255,0.08);
+      color: var(--muted);
+      font-size: 0.88rem;
+    }
+
+    .showcase-grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 14px;
+    }
+
+    .glass {
+      position: relative;
+      border-radius: 24px;
+      padding: 22px;
+      background: rgba(255,255,255,0.045);
+      border: 1px solid rgba(255,255,255,0.08);
+      overflow: hidden;
+    }
+
+    .glass::after {
+      content: "";
+      position: absolute;
+      inset: auto -20% -45% auto;
+      width: 220px;
+      height: 220px;
+      background: radial-gradient(circle, rgba(176,141,87,0.12), transparent 55%);
+      pointer-events: none;
+    }
+
+    .g-main { grid-column: span 7; min-height: 250px; }
+    .g-side { grid-column: span 5; min-height: 250px; }
+    .g-foot { grid-column: span 12; min-height: 180px; }
+
+    .kicker {
+      color: #d9c18f;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-size: 0.78rem;
+      margin-bottom: 12px;
+    }
+
+    .glass h3 {
+      margin: 0 0 8px;
+      font-size: 1.6rem;
+      letter-spacing: -0.03em;
+    }
+
+    .glass p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.65;
+      max-width: 34ch;
+    }
+
+    .product-bars {
+      margin-top: 18px;
+      display: grid;
+      gap: 12px;
+    }
+
+    .bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .bar span {
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .bar-track {
+      flex: 1;
+      height: 10px;
+      background: rgba(255,255,255,0.07);
+      border-radius: 999px;
+      overflow: hidden;
+    }
+
+    .bar-track i {
+      display: block;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, rgba(176,141,87,0.42), #d9bf8d);
+      transform-origin: left;
+      animation: fillBar 1.3s ease both;
+    }
+
+    .ring-wrap {
+      display: grid;
+      place-items: center;
+      height: calc(100% - 20px);
+      padding-top: 10px;
+    }
+
+    .ring {
+      width: 220px;
+      height: 220px;
+      border-radius: 50%;
+      background:
+        radial-gradient(circle at center, #111215 42%, transparent 44%),
+        conic-gradient(#d3b885 0 72%, rgba(255,255,255,0.08) 72% 100%);
+      display: grid;
+      place-items: center;
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,0.05);
+    }
+
+    .ring-inner {
+      text-align: center;
+    }
+
+    .ring-inner strong {
+      display: block;
+      font-size: 3rem;
+      letter-spacing: -0.04em;
+    }
+
+    .ring-inner span {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .foot-cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      height: 100%;
+    }
+
+    .foot-card {
+      border-radius: 20px;
+      background: rgba(255,255,255,0.035);
+      border: 1px solid rgba(255,255,255,0.07);
+      padding: 18px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 140px;
+    }
+
+    .foot-card strong {
+      font-size: 1.08rem;
+      margin-bottom: 8px;
+    }
+
+    .foot-card p {
+      max-width: none;
+      font-size: 0.94rem;
+    }
+
+    section {
+      padding: 92px 0;
+    }
+
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 24px;
+      align-items: end;
+      margin-bottom: 28px;
+    }
+
+    .section-title {
+      max-width: 640px;
+    }
+
+    .section-title span {
+      display: inline-block;
+      color: #d5bc8b;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-size: 0.78rem;
+      margin-bottom: 12px;
+    }
+
+    .section-title h2 {
+      margin: 0;
+      font-size: clamp(2rem, 4vw, 3.4rem);
+      letter-spacing: -0.04em;
+      line-height: 1.04;
+    }
+
+    .section-title p {
+      margin: 14px 0 0;
+      color: var(--muted);
+      line-height: 1.7;
+      font-size: 1.02rem;
+      max-width: 60ch;
+    }
+
+    .grid-4 {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+
+    .card {
+      position: relative;
+      border-radius: var(--radius-lg);
+      background: linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.03));
+      border: 1px solid rgba(255,255,255,0.08);
+      padding: 24px;
+      overflow: hidden;
+      transition: transform 260ms ease, border-color 260ms ease, background 260ms ease;
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+      border-color: rgba(176,141,87,0.24);
+      background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.04));
+    }
+
+    .card-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 18px;
+      display: grid;
+      place-items: center;
+      color: #d5bc8b;
+      background: rgba(176,141,87,0.1);
+      border: 1px solid rgba(176,141,87,0.2);
+      margin-bottom: 16px;
+      font-size: 1.2rem;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.04);
+    }
+
+    .card h3 {
+      margin: 0 0 10px;
+      font-size: 1.25rem;
+      letter-spacing: -0.03em;
+    }
+
+    .card p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.65;
+      font-size: 0.97rem;
+    }
+
+    .split {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 20px;
+      align-items: stretch;
+    }
+
+    .panel {
+      border-radius: 30px;
+      padding: 28px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.03));
+      border: 1px solid rgba(255,255,255,0.08);
+      box-shadow: var(--shadow);
+    }
+
+    .panel-dark {
+      background:
+        radial-gradient(circle at top right, rgba(176,141,87,0.18), transparent 28%),
+        linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02));
+    }
+
+    .list {
+      display: grid;
+      gap: 14px;
+      margin-top: 18px;
+    }
+
+    .list-item {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+      padding: 16px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+    }
+
+    .list-item:last-child { border-bottom: 0; }
+
+    .bullet {
+      width: 28px;
+      height: 28px;
+      flex: 0 0 28px;
+      border-radius: 999px;
+      display: grid;
+      place-items: center;
+      background: rgba(176,141,87,0.12);
+      color: #d5bc8b;
+      border: 1px solid rgba(176,141,87,0.18);
+      font-size: 0.85rem;
+      margin-top: 2px;
+    }
+
+    .list-item strong {
+      display: block;
+      margin-bottom: 6px;
+      font-size: 1rem;
+    }
+
+    .list-item p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.65;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-top: 20px;
+    }
+
+    .stat {
+      padding: 20px;
+      border-radius: 24px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .stat strong {
+      display: block;
+      font-size: clamp(1.8rem, 3vw, 2.6rem);
+      letter-spacing: -0.04em;
+      margin-bottom: 6px;
+    }
+
+    .stat span {
+      color: var(--muted);
+      line-height: 1.5;
+      font-size: 0.95rem;
+    }
+
+    .cta-wrap {
+      border-radius: 34px;
+      padding: 34px;
+      background:
+        radial-gradient(circle at top left, rgba(176,141,87,0.18), transparent 32%),
+        linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.03));
+      border: 1px solid rgba(255,255,255,0.1);
+      box-shadow: var(--shadow);
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 24px;
+      align-items: center;
+    }
+
+    .cta-wrap h2 {
+      margin: 0;
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      letter-spacing: -0.05em;
+      line-height: 1.02;
+    }
+
+    .cta-wrap p {
+      color: var(--muted);
+      font-size: 1.02rem;
+      line-height: 1.7;
+      margin: 14px 0 0;
+      max-width: 54ch;
+    }
+
+    .cta-actions {
+      display: flex;
+      gap: 12px;
+      justify-content: flex-end;
+      flex-wrap: wrap;
+    }
+
+    .footer {
+      padding: 28px 0 50px;
+      color: var(--muted);
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      align-items: center;
+      padding-top: 18px;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      flex-wrap: wrap;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(22px);
+      transition: opacity 700ms ease, transform 700ms ease;
+      will-change: opacity, transform;
+    }
+
+    .reveal.in {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @keyframes floatGlow {
+      0%, 100% { transform: translateY(0px) translateX(0px) scale(1); }
+      50% { transform: translateY(-18px) translateX(8px) scale(1.04); }
+    }
+
+    @keyframes floatSlow {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+    }
+
+    @keyframes fillBar {
+      from { transform: scaleX(0); }
+      to { transform: scaleX(1); }
+    }
+
+    @media (max-width: 1080px) {
+      .hero-grid,
+      .split,
+      .cta-wrap {
+        grid-template-columns: 1fr;
+      }
+
+      .grid-4 {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .hero-panel {
+        min-height: auto;
+      }
+
+      .cta-actions {
+        justify-content: flex-start;
+      }
+    }
+
+    @media (max-width: 820px) {
+      .nav-links {
+        display: none;
+      }
+
+      .hero-meta,
+      .stats,
+      .foot-cards {
+        grid-template-columns: 1fr;
+      }
+
+      .showcase-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .g-main,
+      .g-side,
+      .g-foot {
+        grid-column: span 1;
+      }
+
+      .grid-4 {
+        grid-template-columns: 1fr;
+      }
+
+      .section-head {
+        display: block;
+      }
+
+      .hero h1 {
+        max-width: 10ch;
+      }
+
+      .hero-actions {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .btn {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="nav">
+    <div class="container nav-inner">
+      <a href="#inicio" class="brand" aria-label="Novaro inicio">
+        <span class="brand-mark">V</span>
+        <span>NOVARO</span>
+      </a>
+
+      <nav class="nav-links" aria-label="Principal">
+        <a href="#categorias">Categorías</a>
+        <a href="#mayor">Mayor</a>
+        <a href="#marca">Marca</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
+
+      <a class="btn btn-primary" href="https://wa.me/584245053694" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="inicio">
+      <div class="container hero-grid">
+        <div class="reveal">
+          <div class="eyebrow">Originales al mayor y detal</div>
+          <h1>Marca comercial con <span class="accent">presencia</span> real.</h1>
+          <p>
+            Novaro conecta productos originales, atención confiable y una presentación de marca sólida para vender con nivel en Venezuela. Suplementos, perfumes, relojes y accesorios con visión de crecimiento.
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#contacto">Cotizar ahora</a>
+            <a class="btn btn-ghost" href="#categorias">Ver categorías</a>
+          </div>
+
+          <div class="hero-meta">
+            <div class="meta-card">
+              <strong>Mayor y detal</strong>
+              <span>Modelo comercial flexible para clientes finales y revendedores.</span>
+            </div>
+            <div class="meta-card">
+              <strong>Originales</strong>
+              <span>Catálogo con enfoque en confianza, respaldo y selección comercial.</span>
+            </div>
+            <div class="meta-card">
+              <strong>Visión de marca</strong>
+              <span>Base preparada para crecer en Instagram, Marketplace y e-commerce.</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-panel reveal">
+          <div class="orb one"></div>
+          <div class="orb two"></div>
+          <div class="dashboard">
+            <div class="tag-row">
+              <span class="tag">Perfumes</span>
+              <span class="tag">Relojes</span>
+              <span class="tag">Suplementos</span>
+              <span class="tag">Accesorios</span>
+            </div>
+
+            <div class="showcase-grid">
+              <div class="glass g-main">
+                <div class="kicker">Identidad comercial</div>
+                <h3>Una marca que se siente empresa.</h3>
+                <p>
+                  Diseño sobrio, estructura clara y percepción premium-comercial para construir confianza desde el primer contacto.
+                </p>
+
+                <div class="product-bars">
+                  <div class="bar"><span>Confianza de marca</span><div class="bar-track"><i style="width:88%"></i></div></div>
+                  <div class="bar"><span>Presentación premium</span><div class="bar-track"><i style="width:76%"></i></div></div>
+                  <div class="bar"><span>Escalabilidad</span><div class="bar-track"><i style="width:92%"></i></div></div>
+                </div>
+              </div>
+
+              <div class="glass g-side">
+                <div class="kicker">Estructura</div>
+                <div class="ring-wrap">
+                  <div class="ring">
+                    <div class="ring-inner">
+                      <strong>4</strong>
+                      <span>líneas base para crecer con orden</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="glass g-foot">
+                <div class="foot-cards">
+                  <div class="foot-card">
+                    <strong>Selección comercial</strong>
+                    <p>Productos con salida, presencia y potencial de recompra dentro del mercado local.</p>
+                  </div>
+                  <div class="foot-card">
+                    <strong>Imagen consistente</strong>
+                    <p>Una misma línea visual para redes, publicaciones, web y atención comercial.</p>
+                  </div>
+                  <div class="foot-card">
+                    <strong>Preparada para escalar</strong>
+                    <p>Base ideal para catálogo, campañas, mayoristas y futuras automatizaciones.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="tag-row">
+              <span class="tag">Instagram</span>
+              <span class="tag">Mercado Libre</span>
+              <span class="tag">Marketplace</span>
+              <span class="tag">WhatsApp Business</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="categorias">
+      <div class="container">
+        <div class="section-head reveal">
+          <div class="section-title">
+            <span>Categorías</span>
+            <h2>Un catálogo pensado para vender con orden, confianza y presencia.</h2>
+            <p>
+              No se trata de vender de todo. Se trata de organizar una oferta comercial que proyecte nivel y permita crecer por líneas con identidad clara.
+            </p>
+          </div>
+        </div>
+
+        <div class="grid-4">
+          <article class="card reveal">
+            <div class="card-icon">◆</div>
+            <h3>Perfumes originales</h3>
+            <p>Fragancias con presentación sólida, percepción premium y alto atractivo visual para ecommerce y marketplace.</p>
+          </article>
+          <article class="card reveal">
+            <div class="card-icon">◌</div>
+            <h3>Relojes reconocidos</h3>
+            <p>Marcas con salida comercial, estética funcional y presencia ideal para público que compra con criterio y aspiración.</p>
+          </article>
+          <article class="card reveal">
+            <div class="card-icon">▲</div>
+            <h3>Suplementos deportivos</h3>
+            <p>Productos de alta rotación dentro del segmento fitness, con enfoque en confianza, detalle técnico y recompra.</p>
+          </article>
+          <article class="card reveal">
+            <div class="card-icon">✦</div>
+            <h3>Accesorios seleccionados</h3>
+            <p>Lentes, gorras, carteras y complementos que elevan ticket promedio y refuerzan la amplitud de la marca.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="mayor">
+      <div class="container split">
+        <div class="panel panel-dark reveal">
+          <div class="section-title">
+            <span>Mayor y detal</span>
+            <h2>Modelo comercial listo para volumen y crecimiento.</h2>
+            <p>
+              Novaro no nace solo para vender unidades. Nace para construir una operación comercial que también pueda atender revendedores, aliados y clientes frecuentes.
+            </p>
+          </div>
+
+          <div class="stats">
+            <div class="stat">
+              <strong>01</strong>
+              <span>Atención clara y rápida con enfoque consultivo.</span>
+            </div>
+            <div class="stat">
+              <strong>02</strong>
+              <span>Orden por categorías para facilitar cotización y cierre.</span>
+            </div>
+            <div class="stat">
+              <strong>03</strong>
+              <span>Base de marca preparada para escalar a catálogo y web completa.</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel reveal">
+          <div class="section-title">
+            <span>Ventaja comercial</span>
+            <h2>Así se ve una marca que quiere durar.</h2>
+          </div>
+          <div class="list">
+            <div class="list-item">
+              <div class="bullet">1</div>
+              <div>
+                <strong>Percepción más sólida</strong>
+                <p>Una imagen premium-comercial eleva confianza y te separa de vendedores improvisados o cuentas sin estructura.</p>
+              </div>
+            </div>
+            <div class="list-item">
+              <div class="bullet">2</div>
+              <div>
+                <strong>Más capacidad de cierre</strong>
+                <p>Cuando la marca se ve organizada, el cliente percibe respaldo, seriedad y mejor disposición para comprar.</p>
+              </div>
+            </div>
+            <div class="list-item">
+              <div class="bullet">3</div>
+              <div>
+                <strong>Escalabilidad real</strong>
+                <p>Lo que hoy funciona como home de presentación luego puede crecer a landing por categoría, catálogo y automatización.</p>
+              </div>
+            </div>
+            <div class="list-item">
+              <div class="bullet">4</div>
+              <div>
+                <strong>Coherencia total</strong>
+                <p>Instagram, Mercado Libre, WhatsApp y la web trabajan con el mismo discurso visual y comercial.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="marca">
+      <div class="container">
+        <div class="section-head reveal">
+          <div class="section-title">
+            <span>Marca</span>
+            <h2>Exclusividad, orden y una identidad que proyecta empresa.</h2>
+            <p>
+              El objetivo no es verse lujoso por verse lujoso. El objetivo es transmitir seriedad, criterio y selección para vender mejor en un mercado competitivo.
+            </p>
+          </div>
+        </div>
+
+        <div class="grid-4">
+          <article class="card reveal">
+            <div class="card-icon">N</div>
+            <h3>Nombre con fuerza</h3>
+            <p>Novaro funciona como marca paraguas y permite crecer sin quedar encerrado en una sola categoría.</p>
+          </article>
+          <article class="card reveal">
+            <div class="card-icon">V</div>
+            <h3>Presencia visual</h3>
+            <p>Estética limpia, tonos sobrios y detalles cálidos para una percepción premium sin perder carácter comercial.</p>
+          </article>
+          <article class="card reveal">
+            <div class="card-icon">◎</div>
+            <h3>Dirección consistente</h3>
+            <p>La marca se presenta igual en web, perfil, catálogo, atención y piezas de venta.</p>
+          </article>
+          <article class="card reveal">
+            <div class="card-icon">↗</div>
+            <h3>Visión a futuro</h3>
+            <p>La base está diseñada para luego sumar catálogo avanzado, formularios, pagos y automatizaciones.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="contacto">
+      <div class="container">
+        <div class="cta-wrap reveal">
+          <div>
+            <div class="section-title">
+              <span>Contacto</span>
+              <h2>Haz que Novaro salga al mercado con una base profesional.</h2>
+            </div>
+            <p>
+              Este home ya está pensado para presentarte como marca seria. Luego podemos llevarlo a un nivel mayor con catálogo, páginas por categoría, formularios, integración con WhatsApp y más.
+            </p>
+          </div>
+
+          <div class="cta-actions">
+            <a class="btn btn-primary" href="https://wa.me/584245053694" target="_blank" rel="noopener noreferrer">Escribir por WhatsApp</a>
+            <a class="btn btn-ghost" href="https://instagram.com/novaro.ve" target="_blank" rel="noopener noreferrer">Instagram</a>
+            <a class="btn btn-ghost" href="https://www.mercadolibre.com.ve/pagina/novarove/" target="_blank" rel="noopener noreferrer">Mercado Libre</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div>
+        <strong style="color: var(--text); letter-spacing: 0.2em; font-size: 0.95rem;">NOVARO</strong><br />
+        <span>Productos originales al mayor y detal.</span>
+      </div>
+
+      <div class="footer-links">
+        <a href="#inicio">Inicio</a>
+        <a href="#categorias">Categorías</a>
+        <a href="#mayor">Mayor</a>
+        <a href="#contacto">Contacto</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const revealElements = document.querySelectorAll('.reveal');
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    revealElements.forEach((el, index) => {
+      el.style.transitionDelay = `${Math.min(index * 70, 280)}ms`;
+      observer.observe(el);
+    });
+  </script>
+</body>
+</html>
