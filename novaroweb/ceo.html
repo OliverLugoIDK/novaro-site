@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Oliver Jhoan Lugo | CEO & Founder | Novaro</title>
+  <meta name="description" content="Conoce a Oliver Jhoan Lugo, CEO & Founder de Novaro. Historia, visión, trayectoria y enfoque detrás de una marca creada para elevar la originalidad en Venezuela." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #070707;
+      --bg-soft: #101010;
+      --panel: rgba(17,17,17,0.88);
+      --panel-2: rgba(22,22,22,0.94);
+      --line: rgba(255,255,255,0.08);
+      --line-strong: rgba(255,255,255,0.14);
+      --text: #f5f0e8;
+      --muted: #bcb4a8;
+      --muted-2: #91897e;
+      --gold: #b08d57;
+      --gold-light: #dcc89e;
+      --gold-soft: rgba(176,141,87,0.18);
+      --shadow: 0 28px 80px rgba(0,0,0,0.42);
+      --radius-xl: 36px;
+      --radius-lg: 26px;
+      --radius-md: 18px;
+      --max: 1220px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 10% 10%, rgba(176,141,87,0.12), transparent 18%),
+        radial-gradient(circle at 90% 6%, rgba(255,255,255,0.05), transparent 14%),
+        linear-gradient(180deg, #050505 0%, #0b0b0b 50%, #060606 100%);
+      overflow-x: hidden;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; }
+
+    .page {
+      width: min(calc(100% - 28px), var(--max));
+      margin: 0 auto;
+      padding: 26px 0 70px;
+    }
+
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      backdrop-filter: blur(14px);
+      background: rgba(7,7,7,0.72);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      margin: 0 -14px;
+      padding: 0 14px;
+    }
+
+    .nav-inner {
+      width: min(100%, var(--max));
+      margin: 0 auto;
+      min-height: 78px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 800;
+      letter-spacing: 0.22em;
+      font-size: 0.95rem;
+    }
+
+    .brand-mark {
+      width: 42px;
+      height: 42px;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      color: var(--gold-light);
+      border: 1px solid rgba(176,141,87,0.3);
+      background: linear-gradient(135deg, rgba(176,141,87,0.16), rgba(255,255,255,0.04));
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.04);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      color: var(--muted);
+      font-size: 0.94rem;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .nav-links a:hover { color: var(--text); }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 22px;
+      align-items: stretch;
+      margin-top: 28px;
+    }
+
+    .hero-card,
+    .section,
+    .quote-band {
+      border-radius: var(--radius-xl);
+      border: 1px solid var(--line);
+      background:
+        radial-gradient(circle at top right, rgba(176,141,87,0.12), transparent 22%),
+        linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.015)),
+        var(--panel);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .hero-image {
+      min-height: 680px;
+      position: relative;
+      background:
+        linear-gradient(180deg, rgba(0,0,0,0.08), rgba(0,0,0,0.3)),
+        url('assets/ceo-main.jpg') center/cover no-repeat,
+        #111111;
+    }
+
+    .hero-image::after {
+      content: "";
+      position: absolute;
+      inset: auto -60px -90px auto;
+      width: 240px;
+      height: 240px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(176,141,87,0.18), transparent 60%);
+      pointer-events: none;
+    }
+
+    .hero-badge {
+      position: absolute;
+      left: 24px;
+      bottom: 24px;
+      right: 24px;
+      padding: 18px 20px;
+      border-radius: 22px;
+      background: rgba(10,10,10,0.56);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .hero-badge span {
+      display: inline-block;
+      margin-bottom: 8px;
+      color: var(--gold-light);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-size: 0.74rem;
+    }
+
+    .hero-badge strong {
+      display: block;
+      font-size: 1.24rem;
+      letter-spacing: -0.03em;
+      margin-bottom: 6px;
+    }
+
+    .hero-badge p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.55;
+      font-size: 0.92rem;
+    }
+
+    .hero-copy {
+      padding: 36px 34px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      width: fit-content;
+      margin-bottom: 18px;
+      padding: 10px 14px;
+      border-radius: 999px;
+      color: var(--gold-light);
+      border: 1px solid rgba(176,141,87,0.24);
+      background: rgba(176,141,87,0.08);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      font-size: 0.76rem;
+    }
+
+    .hero-copy h1 {
+      margin: 0;
+      font-size: clamp(2.8rem, 5vw, 5rem);
+      line-height: 0.95;
+      letter-spacing: -0.08em;
+      max-width: 10ch;
+    }
+
+    .hero-copy .role {
+      margin: 16px 0 0;
+      color: var(--gold-light);
+      font-weight: 700;
+      font-size: 1rem;
+      letter-spacing: 0.04em;
+    }
+
+    .hero-copy .location {
+      margin: 10px 0 0;
+      color: var(--muted-2);
+      font-size: 0.95rem;
+    }
+
+    .hero-copy p {
+      margin: 20px 0 0;
+      color: var(--muted);
+      font-size: 1rem;
+      line-height: 1.82;
+      max-width: 58ch;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 28px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 50px;
+      padding: 0 20px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      font-weight: 700;
+      transition: 220ms ease;
+      white-space: nowrap;
+    }
+
+    .btn-primary {
+      color: #15120d;
+      background: linear-gradient(135deg, var(--gold-light), var(--gold));
+      box-shadow: 0 12px 28px rgba(176,141,87,0.22);
+    }
+
+    .btn-secondary {
+      color: var(--text);
+      background: rgba(255,255,255,0.03);
+      border-color: rgba(255,255,255,0.12);
+    }
+
+    .btn:hover { transform: translateY(-2px); }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1.08fr 0.92fr;
+      gap: 18px;
+      margin-top: 18px;
+    }
+
+    .section {
+      padding: 30px;
+    }
+
+    .section-kicker {
+      display: inline-block;
+      margin-bottom: 14px;
+      color: var(--gold-light);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      font-size: 0.74rem;
+    }
+
+    .section h2 {
+      margin: 0;
+      font-size: clamp(1.9rem, 3vw, 3rem);
+      line-height: 1.02;
+      letter-spacing: -0.05em;
+    }
+
+    .section p {
+      margin: 16px 0 0;
+      color: var(--muted);
+      font-size: 0.98rem;
+      line-height: 1.82;
+    }
+
+    .feature-list {
+      display: grid;
+      gap: 14px;
+      margin-top: 18px;
+    }
+
+    .feature {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+      padding: 14px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+    }
+
+    .feature:last-child { border-bottom: 0; }
+
+    .feature-badge {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: rgba(176,141,87,0.12);
+      color: var(--gold-light);
+      border: 1px solid rgba(176,141,87,0.2);
+      flex: 0 0 30px;
+      font-size: 0.84rem;
+      margin-top: 2px;
+    }
+
+    .feature strong {
+      display: block;
+      margin-bottom: 6px;
+      font-size: 1rem;
+    }
+
+    .feature p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.94rem;
+      line-height: 1.66;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+      margin-top: 20px;
+    }
+
+    .stat {
+      padding: 20px;
+      border-radius: 22px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.03);
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 2rem;
+      line-height: 1;
+      letter-spacing: -0.05em;
+      margin-bottom: 6px;
+    }
+
+    .stat span {
+      color: var(--muted);
+      font-size: 0.94rem;
+      line-height: 1.55;
+    }
+
+    .quote-band {
+      margin-top: 18px;
+      padding: 34px;
+      text-align: center;
+    }
+
+    .quote-band p {
+      margin: 0;
+      font-size: clamp(1.35rem, 2.6vw, 2rem);
+      line-height: 1.45;
+      letter-spacing: -0.03em;
+      max-width: 28ch;
+      margin-inline: auto;
+    }
+
+    .quote-band span {
+      display: inline-block;
+      margin-top: 14px;
+      color: var(--gold-light);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-size: 0.74rem;
+    }
+
+    .contact-links {
+      display: grid;
+      gap: 12px;
+      margin-top: 20px;
+    }
+
+    .contact-card {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      padding: 16px 18px;
+      border-radius: 20px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.03);
+      transition: 220ms ease;
+    }
+
+    .contact-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(176,141,87,0.24);
+      background: rgba(255,255,255,0.05);
+    }
+
+    .contact-card strong {
+      display: block;
+      font-size: 0.96rem;
+      margin-bottom: 4px;
+    }
+
+    .contact-card span {
+      color: var(--muted);
+      font-size: 0.92rem;
+      line-height: 1.45;
+    }
+
+    .contact-arrow {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(255,255,255,0.1);
+      background: rgba(255,255,255,0.04);
+      flex: 0 0 40px;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 700ms ease, transform 700ms ease;
+    }
+
+    .reveal.in {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 1040px) {
+      .hero,
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-image {
+        min-height: 560px;
+      }
+    }
+
+    @media (max-width: 700px) {
+      .page { width: min(calc(100% - 18px), var(--max)); }
+      .nav-links { display: none; }
+      .hero-copy,
+      .section,
+      .quote-band { padding: 22px 18px; }
+      .hero-actions { flex-direction: column; align-items: stretch; }
+      .btn { width: 100%; }
+      .stats { grid-template-columns: 1fr; }
+      .hero-image { min-height: 420px; }
+    }
+  </style>
+</head>
+<body>
+  <header class="nav">
+    <div class="nav-inner">
+      <a href="index.html" class="brand">
+        <span class="brand-mark">V</span>
+        <span>NOVARO</span>
+      </a>
+      <nav class="nav-links">
+        <a href="#historia">Historia</a>
+        <a href="#trayectoria">Trayectoria</a>
+        <a href="#vision">Visión</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page">
+    <section class="hero">
+      <div class="hero-card hero-image reveal">
+        <div class="hero-badge">
+          <span>CEO & Founder</span>
+          <strong>Oliver Jhoan Lugo</strong>
+          <p>22 años • Guanare, Venezuela • Dirección, marca y crecimiento comercial.</p>
+        </div>
+      </div>
+
+      <div class="hero-card hero-copy reveal">
+        <div class="eyebrow">Liderazgo y visión</div>
+        <h1>Oliver Jhoan Lugo</h1>
+        <div class="role">CEO & Founder de Novaro</div>
+        <div class="location">Guanare, Venezuela</div>
+        <p>
+          Oliver Jhoan Lugo es el rostro detrás de Novaro y la mente que impulsa una visión clara: construir una marca venezolana capaz de representar originalidad, exclusividad y dirección comercial real en un mercado donde, durante años, lo común ha sido conformarse con lo repetido.
+        </p>
+        <p>
+          Con una combinación poco habitual entre creatividad, criterio comercial y visión tecnológica, ha construido su perfil integrando diseño gráfico, marketing, inteligencia artificial, desarrollo web y estrategia de marca, siempre con el objetivo de convertir ideas en estructuras con potencial de crecimiento.
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="https://wa.me/584245053694" target="_blank" rel="noopener noreferrer">Hablar por WhatsApp</a>
+          <a class="btn btn-secondary" href="index.html">Volver a Novaro</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="grid" id="historia">
+      <article class="section reveal">
+        <div class="section-kicker">Historia</div>
+        <h2>Cómo nació una visión distinta</h2>
+        <p>
+          Novaro nace desde una observación incómoda pero real: en su entorno, lo exclusivo casi no existía como experiencia auténtica. Lo común era encontrar réplicas, fórmulas repetidas y negocios que vendían sin construir una identidad que realmente enamorara a un público exigente.
+        </p>
+        <p>
+          Frente a ese escenario, Oliver decidió no seguir la vía fácil. En lugar de adaptarse a lo que ya estaba saturado, eligió abrirse paso en un espacio donde muchos emprendedores no se atreven a entrar: el de construir una marca que defienda la originalidad, la buena presentación y una propuesta comercial con carácter propio.
+        </p>
+        <p>
+          Novaro no surge solo como una tienda. Surge como una respuesta a la falta de innovación, a la ausencia de exclusividad real y al deseo de demostrar que en Venezuela sí se puede levantar una marca con estética, criterio, dirección y aspiración. Para Oliver, crear Novaro es una forma de elevar el estándar, de hacer que la originalidad vuelva a tener valor y de demostrar que una marca bien pensada también puede nacer desde la provincia para proyectarse a todo el país.
+        </p>
+      </article>
+
+      <article class="section reveal" id="trayectoria">
+        <div class="section-kicker">Trayectoria</div>
+        <h2>Perfil profesional</h2>
+        <p>
+          Actualmente, Oliver trabaja de forma directa en Daca Sport C.A. y al mismo tiempo continúa su formación universitaria en Informática, fortaleciendo un perfil que ya destaca por su versatilidad y enfoque estratégico. Su recorrido profesional no ha sido lineal ni limitado a una sola función: se ha construido trabajando, estudiando y desarrollándose de manera independiente, con una mentalidad de crecimiento constante.
+        </p>
+        <div class="feature-list">
+          <div class="feature">
+            <div class="feature-badge">1</div>
+            <div>
+              <strong>Diseño gráfico y dirección visual</strong>
+              <p>Capacidad para construir identidades, piezas y presentaciones con criterio comercial y estética de marca.</p>
+            </div>
+          </div>
+          <div class="feature">
+            <div class="feature-badge">2</div>
+            <div>
+              <strong>Marketing, branding y mercadeo</strong>
+              <p>Enfoque fuerte en posicionamiento, venta, percepción y estructura digital para marcas con visión de crecimiento.</p>
+            </div>
+          </div>
+          <div class="feature">
+            <div class="feature-badge">3</div>
+            <div>
+              <strong>Desarrollo web e inteligencia artificial</strong>
+              <p>Uso de herramientas tecnológicas para construir experiencias, sistemas y activos que potencien negocios reales.</p>
+            </div>
+          </div>
+          <div class="feature">
+            <div class="feature-badge">4</div>
+            <div>
+              <strong>Gestión y liderazgo</strong>
+              <p>Capacidad para dirigir, organizar y proyectar una marca con mentalidad de empresa y enfoque al mayor.</p>
+            </div>
+          </div>
+        </div>
+        <div class="stats">
+          <div class="stat">
+            <strong>5+</strong>
+            <span>Años de experiencia construyendo criterio en diseño, mercadeo y marca.</span>
+          </div>
+          <div class="stat">
+            <strong>22</strong>
+            <span>Años de edad con una visión enfocada en crecimiento, innovación y liderazgo.</span>
+          </div>
+          <div class="stat">
+            <strong>Mayor</strong>
+            <span>Enfoque claro en distribución al mayor como una de sus fortalezas comerciales.</span>
+          </div>
+          <div class="stat">
+            <strong>Digital</strong>
+            <span>Presencia online, branding y marketing como base de su propuesta actual.</span>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <section class="quote-band reveal">
+      <p>
+        “Quiero construir una marca que haga que la originalidad sí tenga presencia en Venezuela, y llevarla hasta convertirse en una referencia real de exclusividad, innovación y dirección comercial.”
+      </p>
+      <span>Oliver Jhoan Lugo</span>
+    </section>
+
+    <section class="grid" id="vision">
+      <article class="section reveal">
+        <div class="section-kicker">Visión</div>
+        <h2>Qué representa Novaro</h2>
+        <p>
+          Para Oliver, Novaro representa mucho más que una oportunidad comercial. Representa una forma de demostrar que el mercado venezolano todavía puede sorprenderse, aspirar a más y conectar con marcas que no se conformen con lo básico. Representa disciplina, criterio, estética y una visión de futuro donde vender no significa solo mover productos, sino construir una experiencia con identidad.
+        </p>
+        <p>
+          Su meta es clara: crecer, innovar y posicionarse como número uno en originalidad dentro de Venezuela, desarrollando una marca que se perciba seria, estratégica, cercana, visionaria, comercial y premium al mismo tiempo.
+        </p>
+      </article>
+
+      <article class="section reveal" id="contacto">
+        <div class="section-kicker">Contacto y presencia</div>
+        <h2>Canales de conexión</h2>
+        <p>
+          Esta página también funciona como punto de contacto para quienes quieran conocer más sobre su visión, conectar comercialmente o seguir el crecimiento de Novaro.
+        </p>
+        <div class="contact-links">
+          <a class="contact-card" href="https://wa.me/584245053694" target="_blank" rel="noopener noreferrer">
+            <div>
+              <strong>WhatsApp</strong>
+              <span>0424-5053694</span>
+            </div>
+            <div class="contact-arrow">→</div>
+          </a>
+          <a class="contact-card" href="#" target="_blank" rel="noopener noreferrer">
+            <div>
+              <strong>Instagram</strong>
+              <span>Agregar usuario real</span>
+            </div>
+            <div class="contact-arrow">→</div>
+          </a>
+          <a class="contact-card" href="#" target="_blank" rel="noopener noreferrer">
+            <div>
+              <strong>Facebook</strong>
+              <span>Agregar enlace real</span>
+            </div>
+            <div class="contact-arrow">→</div>
+          </a>
+          <a class="contact-card" href="#" target="_blank" rel="noopener noreferrer">
+            <div>
+              <strong>TikTok</strong>
+              <span>Agregar usuario real</span>
+            </div>
+            <div class="contact-arrow">→</div>
+          </a>
+          <a class="contact-card" href="mailto:agregarcorreoaqui@correo.com">
+            <div>
+              <strong>Correo</strong>
+              <span>agregarcorreoaqui@correo.com</span>
+            </div>
+            <div class="contact-arrow">→</div>
+          </a>
+        </div>
+      </article>
+    </section>
+  </main>
+
+  <script>
+    const revealElements = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    revealElements.forEach((el, index) => {
+      el.style.transitionDelay = `${Math.min(index * 60, 240)}ms`;
+      observer.observe(el);
+    });
+  </script>
+</body>
+</html>

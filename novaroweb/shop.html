@@ -1,0 +1,1048 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Novaro | Shop</title>
+  <meta name="description" content="Tienda de Novaro con productos top, categorías clave y acceso rápido a compra por WhatsApp y Mercado Libre." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #060606;
+      --bg-soft: #101010;
+      --panel: rgba(16,16,16,0.92);
+      --panel-2: rgba(22,22,22,0.96);
+      --line: rgba(255,255,255,0.08);
+      --line-strong: rgba(255,255,255,0.14);
+      --text: #f5f0e8;
+      --muted: #bcb4a8;
+      --muted-2: #8f877b;
+      --gold: #b08d57;
+      --gold-light: #dcc89e;
+      --gold-soft: rgba(176,141,87,0.16);
+      --green: #8bc58f;
+      --shadow: 0 28px 80px rgba(0,0,0,0.42);
+      --radius-xl: 36px;
+      --radius-lg: 26px;
+      --radius-md: 18px;
+      --max: 1280px;
+      --nav-h: 82px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 10% 10%, rgba(176,141,87,0.12), transparent 18%),
+        radial-gradient(circle at 88% 8%, rgba(255,255,255,0.05), transparent 14%),
+        linear-gradient(180deg, #040404 0%, #0a0a0a 48%, #060606 100%);
+      overflow-x: hidden;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; }
+
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      height: var(--nav-h);
+      backdrop-filter: blur(16px);
+      background: rgba(7,7,7,0.74);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .nav-inner,
+    .section-wrap {
+      width: min(calc(100% - 28px), var(--max));
+      margin: 0 auto;
+    }
+
+    .nav-inner {
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 800;
+      letter-spacing: 0.22em;
+      font-size: 0.95rem;
+    }
+
+    .brand-mark {
+      width: 42px;
+      height: 42px;
+      border-radius: 14px;
+      overflow: hidden;
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(176,141,87,0.3);
+      background: linear-gradient(135deg, rgba(176,141,87,0.16), rgba(255,255,255,0.04));
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.04);
+      flex: 0 0 42px;
+    }
+
+    .brand-mark img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      color: var(--muted);
+      font-size: 0.94rem;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a:hover { color: var(--text); }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 50px;
+      padding: 0 20px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      font-weight: 700;
+      transition: 220ms ease;
+      white-space: nowrap;
+      cursor: pointer;
+    }
+
+    .btn:hover { transform: translateY(-2px); }
+
+    .btn-primary {
+      color: #15120d;
+      background: linear-gradient(135deg, var(--gold-light), var(--gold));
+      box-shadow: 0 12px 28px rgba(176,141,87,0.22);
+    }
+
+    .btn-secondary {
+      color: var(--text);
+      background: rgba(255,255,255,0.03);
+      border-color: rgba(255,255,255,0.12);
+    }
+
+    .hero {
+      padding: 40px 0 20px;
+    }
+
+    .hero-grid {
+      width: min(calc(100% - 28px), var(--max));
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 20px;
+      align-items: stretch;
+    }
+
+    .hero-main,
+    .hero-side,
+    .trust-bar,
+    .section-card,
+    .cta-band {
+      border-radius: var(--radius-xl);
+      border: 1px solid var(--line);
+      background:
+        radial-gradient(circle at top right, rgba(176,141,87,0.12), transparent 24%),
+        linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.015)),
+        var(--panel);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .hero-main {
+      padding: 34px;
+      min-height: 580px;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .hero-main::after {
+      content: "";
+      position: absolute;
+      width: 260px;
+      height: 260px;
+      right: -70px;
+      bottom: -90px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(176,141,87,0.18), transparent 60%);
+      pointer-events: none;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      width: fit-content;
+      margin-bottom: 18px;
+      padding: 10px 14px;
+      border-radius: 999px;
+      color: var(--gold-light);
+      border: 1px solid rgba(176,141,87,0.24);
+      background: rgba(176,141,87,0.08);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      font-size: 0.76rem;
+    }
+
+    .hero-main h1 {
+      margin: 0;
+      font-size: clamp(3rem, 5.8vw, 5.8rem);
+      line-height: 0.92;
+      letter-spacing: -0.08em;
+      max-width: 8ch;
+    }
+
+    .hero-main h1 .accent { color: var(--gold-light); }
+
+    .hero-main p {
+      margin: 20px 0 0;
+      color: var(--muted);
+      font-size: 1.02rem;
+      line-height: 1.82;
+      max-width: 56ch;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 28px;
+    }
+
+    .hero-points {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+      margin-top: 24px;
+      color: var(--muted-2);
+      font-size: 0.92rem;
+    }
+
+    .hero-side {
+      padding: 20px;
+      min-height: 580px;
+      display: grid;
+      gap: 14px;
+      grid-template-rows: 1fr 1fr 0.86fr;
+    }
+
+    .info-card {
+      border-radius: 24px;
+      border: 1px solid var(--line);
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.015)),
+        #151515;
+      padding: 22px;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+    }
+
+    .info-card::after {
+      content: "";
+      position: absolute;
+      width: 180px;
+      height: 180px;
+      right: -40px;
+      bottom: -50px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(176,141,87,0.14), transparent 60%);
+      pointer-events: none;
+    }
+
+    .info-card span {
+      display: inline-block;
+      width: fit-content;
+      margin-bottom: 12px;
+      padding: 8px 11px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.1);
+      background: rgba(255,255,255,0.05);
+      color: var(--gold-light);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-size: 0.72rem;
+    }
+
+    .info-card strong {
+      display: block;
+      font-size: 1.5rem;
+      line-height: 1.02;
+      letter-spacing: -0.04em;
+      margin-bottom: 8px;
+      max-width: 12ch;
+    }
+
+    .info-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.92rem;
+      line-height: 1.66;
+      max-width: 28ch;
+    }
+
+    .trust-wrap {
+      width: min(calc(100% - 28px), var(--max));
+      margin: 14px auto 0;
+    }
+
+    .trust-bar {
+      padding: 16px 18px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+    }
+
+    .trust-item {
+      padding: 12px 14px;
+      border-radius: 18px;
+      border: 1px solid rgba(255,255,255,0.06);
+      background: rgba(255,255,255,0.03);
+    }
+
+    .trust-item strong {
+      display: block;
+      font-size: 0.94rem;
+      margin-bottom: 5px;
+    }
+
+    .trust-item span {
+      color: var(--muted);
+      font-size: 0.88rem;
+      line-height: 1.5;
+    }
+
+    section.block {
+      padding: 84px 0 0;
+    }
+
+    .section-wrap {
+      display: block;
+    }
+
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 20px;
+      margin-bottom: 26px;
+      flex-wrap: wrap;
+    }
+
+    .section-head .copy {
+      max-width: 700px;
+    }
+
+    .kicker {
+      display: inline-block;
+      margin-bottom: 12px;
+      color: var(--gold-light);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-size: 0.76rem;
+    }
+
+    .section-head h2 {
+      margin: 0;
+      font-size: clamp(2rem, 4vw, 3.4rem);
+      line-height: 1.02;
+      letter-spacing: -0.05em;
+    }
+
+    .section-head p {
+      margin: 14px 0 0;
+      color: var(--muted);
+      font-size: 1rem;
+      line-height: 1.78;
+      max-width: 58ch;
+    }
+
+    .categories-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+
+    .category-card {
+      min-height: 360px;
+      border-radius: 28px;
+      border: 1px solid var(--line);
+      overflow: hidden;
+      position: relative;
+      box-shadow: var(--shadow);
+      background: linear-gradient(135deg, #171717 0%, #101010 100%);
+      display: flex;
+      align-items: end;
+      padding: 24px;
+      transition: transform 220ms ease, border-color 220ms ease;
+    }
+
+    .category-card:hover {
+      transform: translateY(-8px);
+      border-color: rgba(176,141,87,0.24);
+    }
+
+    .category-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at top right, rgba(176,141,87,0.18), transparent 24%),
+        linear-gradient(180deg, rgba(0,0,0,0.08), rgba(0,0,0,0.48));
+    }
+
+    .category-card:nth-child(1)::after,
+    .category-card:nth-child(2)::after,
+    .category-card:nth-child(3)::after,
+    .category-card:nth-child(4)::after {
+      content: "";
+      position: absolute;
+      inset: 22px 22px auto auto;
+      width: 110px;
+      height: 110px;
+      border-radius: 28px;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: linear-gradient(180deg, rgba(255,255,255,0.10), rgba(255,255,255,0.02));
+      opacity: 0.9;
+    }
+
+    .category-card:nth-child(2)::after { border-radius: 50%; }
+    .category-card:nth-child(3)::after { width: 88px; height: 140px; border-radius: 20px; }
+    .category-card:nth-child(4)::after { width: 140px; height: 80px; border-radius: 22px; }
+
+    .category-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .category-content span {
+      display: inline-block;
+      margin-bottom: 12px;
+      padding: 8px 11px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.1);
+      background: rgba(255,255,255,0.06);
+      color: var(--gold-light);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-size: 0.72rem;
+    }
+
+    .category-content h3 {
+      margin: 0 0 10px;
+      font-size: 1.56rem;
+      line-height: 1.02;
+      letter-spacing: -0.04em;
+      max-width: 10ch;
+    }
+
+    .category-content p {
+      margin: 0;
+      color: rgba(245,240,232,0.78);
+      font-size: 0.93rem;
+      line-height: 1.6;
+      max-width: 24ch;
+    }
+
+    .filters {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .filter-btn {
+      min-height: 42px;
+      padding: 0 14px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.03);
+      color: var(--muted);
+      font-size: 0.88rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: 220ms ease;
+    }
+
+    .filter-btn:hover,
+    .filter-btn.active {
+      color: var(--text);
+      border-color: rgba(176,141,87,0.24);
+      background: rgba(176,141,87,0.12);
+    }
+
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+
+    .product-card {
+      border-radius: 28px;
+      border: 1px solid var(--line);
+      overflow: hidden;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02)),
+        var(--panel-2);
+      box-shadow: var(--shadow);
+      transition: transform 220ms ease, border-color 220ms ease, opacity 220ms ease;
+    }
+
+    .product-card:hover {
+      transform: translateY(-8px);
+      border-color: rgba(176,141,87,0.24);
+    }
+
+    .product-card.hidden {
+      display: none;
+    }
+
+    .product-media {
+      aspect-ratio: 1 / 1.02;
+      position: relative;
+      background:
+        radial-gradient(circle at top right, rgba(176,141,87,0.16), transparent 24%),
+        linear-gradient(135deg, #171717 0%, #101010 100%);
+      display: grid;
+      place-items: center;
+      overflow: hidden;
+    }
+
+    .product-media::after {
+      content: "";
+      position: absolute;
+      width: 200px;
+      height: 200px;
+      right: -50px;
+      bottom: -60px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(176,141,87,0.16), transparent 60%);
+      pointer-events: none;
+    }
+
+    .product-shape {
+      width: 58%;
+      height: 72%;
+      border-radius: 24px;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: linear-gradient(180deg, rgba(255,255,255,0.12), rgba(255,255,255,0.03));
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.05);
+      transform: rotate(-7deg);
+    }
+
+    .product-card[data-cat="relojes"] .product-shape {
+      width: 66%;
+      height: 66%;
+      border-radius: 50%;
+      transform: none;
+    }
+
+    .product-card[data-cat="suplementos"] .product-shape {
+      width: 44%;
+      height: 78%;
+      border-radius: 18px;
+      transform: rotate(2deg);
+    }
+
+    .product-card[data-cat="accesorios"] .product-shape {
+      width: 74%;
+      height: 46%;
+      border-radius: 20px;
+      transform: rotate(-4deg);
+    }
+
+    .product-body {
+      padding: 20px;
+    }
+
+    .product-tag {
+      display: inline-block;
+      margin-bottom: 10px;
+      color: var(--gold-light);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-size: 0.72rem;
+    }
+
+    .product-body h3 {
+      margin: 0 0 8px;
+      font-size: 1.08rem;
+      line-height: 1.24;
+      letter-spacing: -0.03em;
+    }
+
+    .product-body p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.93rem;
+      line-height: 1.62;
+    }
+
+    .product-meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-top: 18px;
+      flex-wrap: wrap;
+    }
+
+    .price {
+      color: var(--text);
+      font-weight: 800;
+      font-size: 1rem;
+      letter-spacing: -0.02em;
+    }
+
+    .mini-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 40px;
+      padding: 0 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.1);
+      background: rgba(255,255,255,0.04);
+      font-size: 0.88rem;
+      font-weight: 700;
+    }
+
+    .mini-btn.gold {
+      background: rgba(176,141,87,0.16);
+      border-color: rgba(176,141,87,0.24);
+      color: var(--gold-light);
+    }
+
+    .cta-band {
+      padding: 34px;
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 20px;
+      align-items: center;
+    }
+
+    .cta-band h2 {
+      margin: 0;
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      line-height: 1.02;
+      letter-spacing: -0.05em;
+      max-width: 11ch;
+    }
+
+    .cta-band p {
+      margin: 14px 0 0;
+      color: var(--muted);
+      font-size: 1rem;
+      line-height: 1.78;
+      max-width: 54ch;
+    }
+
+    .cta-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .footer {
+      padding: 34px 0 54px;
+      color: var(--muted);
+    }
+
+    .footer-inner {
+      width: min(calc(100% - 28px), var(--max));
+      margin: 0 auto;
+      padding-top: 18px;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 700ms ease, transform 700ms ease;
+    }
+
+    .reveal.in {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 1180px) {
+      .hero-grid,
+      .cta-band {
+        grid-template-columns: 1fr;
+      }
+
+      .categories-grid,
+      .products-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .cta-actions {
+        justify-content: flex-start;
+      }
+    }
+
+    @media (max-width: 920px) {
+      .nav-links { display: none; }
+      .trust-bar {
+        grid-template-columns: 1fr;
+      }
+      .hero-side {
+        min-height: auto;
+      }
+    }
+
+    @media (max-width: 700px) {
+      .nav-actions .btn-secondary { display: none; }
+      .hero-actions,
+      .cta-actions {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      .btn { width: 100%; }
+      .categories-grid,
+      .products-grid {
+        grid-template-columns: 1fr;
+      }
+      .hero-main,
+      .hero-side,
+      .cta-band {
+        padding-left: 20px;
+        padding-right: 20px;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .nav-inner,
+      .hero-grid,
+      .trust-wrap,
+      .section-wrap,
+      .footer-inner {
+        width: min(calc(100% - 18px), var(--max));
+      }
+      .hero-main,
+      .hero-side,
+      .cta-band,
+      .section-card,
+      .trust-bar {
+        border-radius: 24px;
+      }
+      .hero-main h1 {
+        max-width: 9ch;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="nav">
+    <div class="nav-inner">
+      <a href="index.html" class="brand">
+        <span class="brand-mark"><img src="assets/logo.png" alt="Logo Novaro" /></span>
+        <span>NOVARO</span>
+      </a>
+
+      <nav class="nav-links">
+        <a href="#categorias">Categorías</a>
+        <a href="#top-products">Top productos</a>
+        <a href="#cta">Compra rápida</a>
+      </nav>
+
+      <div class="nav-actions">
+        <a class="btn btn-secondary" href="index.html">Volver</a>
+        <a class="btn btn-primary" href="https://wa.me/584245053694" target="_blank" rel="noopener noreferrer">Comprar ahora</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-grid">
+        <article class="hero-main reveal">
+          <div class="eyebrow">Shop Novaro</div>
+          <h1>Productos top con <span class="accent">dirección</span> de marca.</h1>
+          <p>
+            Esta página está pensada para vender. Presenta las categorías más importantes de Novaro, destaca productos clave y dirige al usuario a una acción concreta: comprar, consultar o avanzar hacia el catálogo.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="https://wa.me/584245053694" target="_blank" rel="noopener noreferrer">Ir a WhatsApp</a>
+            <a class="btn btn-secondary" href="#top-products">Ver productos top</a>
+          </div>
+          <div class="hero-points">
+            <span>✦ Perfumes</span>
+            <span>✦ Relojes</span>
+            <span>✦ Suplementos</span>
+            <span>✦ Accesorios</span>
+          </div>
+        </article>
+
+        <aside class="hero-side reveal">
+          <div class="info-card">
+            <span>Selección premium</span>
+            <strong>Una tienda pensada para conversión.</strong>
+            <p>Menos relleno visual, mejor jerarquía y enfoque claro en producto, marca y cierre.</p>
+          </div>
+          <div class="info-card">
+            <span>Canal directo</span>
+            <strong>WhatsApp como camino principal.</strong>
+            <p>Porque vender rápido también es facilitar la conversación correcta.</p>
+          </div>
+          <div class="info-card">
+            <span>Soporte comercial</span>
+            <strong>Mercado Libre y mayoristas como respaldo.</strong>
+            <p>La página sirve para vender hoy y para escalar mañana.</p>
+          </div>
+        </aside>
+      </div>
+
+      <div class="trust-wrap">
+        <div class="trust-bar reveal">
+          <div class="trust-item">
+            <strong>Originalidad</strong>
+            <span>Productos seleccionados con visión de marca y presencia.</span>
+          </div>
+          <div class="trust-item">
+            <strong>Mayor y detal</strong>
+            <span>Estructura lista para atender ambos modelos de venta.</span>
+          </div>
+          <div class="trust-item">
+            <strong>Imagen premium</strong>
+            <span>Una tienda más limpia, más seria y más alineada con Novaro.</span>
+          </div>
+          <div class="trust-item">
+            <strong>Acción rápida</strong>
+            <span>Comprar, consultar o ir a Mercado Libre sin fricción.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="block" id="categorias">
+      <div class="section-wrap">
+        <div class="section-head reveal">
+          <div class="copy">
+            <div class="kicker">Categorías principales</div>
+            <h2>Las 4 líneas que definen la tienda.</h2>
+            <p>
+              Novaro debe vender con claridad. Estas son las categorías que estructuran la marca y sobre las que iremos abriendo páginas, colecciones y productos reales.
+            </p>
+          </div>
+        </div>
+
+        <div class="categories-grid">
+          <article class="category-card reveal">
+            <div class="category-content">
+              <span>Perfumes</span>
+              <h3>Fragancias con presencia.</h3>
+              <p>Selección original, estética premium y enfoque comercial fuerte.</p>
+            </div>
+          </article>
+
+          <article class="category-card reveal">
+            <div class="category-content">
+              <span>Relojes</span>
+              <h3>Modelos con carácter.</h3>
+              <p>Relojes funcionales y visualmente fuertes para elevar la oferta.</p>
+            </div>
+          </article>
+
+          <article class="category-card reveal">
+            <div class="category-content">
+              <span>Suplementos</span>
+              <h3>Rendimiento con respaldo.</h3>
+              <p>Productos de rotación, recompra y valor real para el cliente.</p>
+            </div>
+          </article>
+
+          <article class="category-card reveal">
+            <div class="category-content">
+              <span>Accesorios</span>
+              <h3>Detalles que completan.</h3>
+              <p>Piezas que suman ticket, variedad y una experiencia más completa.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="block" id="top-products">
+      <div class="section-wrap">
+        <div class="section-head reveal">
+          <div class="copy">
+            <div class="kicker">Top productos</div>
+            <h2>Lo más importante debe verse primero.</h2>
+            <p>
+              Aquí irán tus productos estrella, los que mejor representan a Novaro o los que más potencial de venta tienen. Ya queda la estructura lista para reemplazarlos por tus piezas reales.
+            </p>
+          </div>
+          <div class="filters">
+            <button class="filter-btn active" data-filter="all">Todos</button>
+            <button class="filter-btn" data-filter="perfumes">Perfumes</button>
+            <button class="filter-btn" data-filter="relojes">Relojes</button>
+            <button class="filter-btn" data-filter="suplementos">Suplementos</button>
+            <button class="filter-btn" data-filter="accesorios">Accesorios</button>
+          </div>
+        </div>
+
+        <div class="products-grid">
+          <article class="product-card reveal" data-cat="perfumes">
+            <div class="product-media"><div class="product-shape"></div></div>
+            <div class="product-body">
+              <span class="product-tag">Perfume top</span>
+              <h3>Producto héroe para campaña de apertura.</h3>
+              <p>Espacio ideal para un perfume original con alta intención visual y comercial.</p>
+              <div class="product-meta">
+                <span class="price">Consultar</span>
+                <a class="mini-btn gold" href="https://wa.me/584245053694" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="product-card reveal" data-cat="relojes">
+            <div class="product-media"><div class="product-shape"></div></div>
+            <div class="product-body">
+              <span class="product-tag">Reloj destacado</span>
+              <h3>Card ideal para un modelo con fuerte presencia.</h3>
+              <p>Perfecta para relojes funcionales, digitales o de estética más deportiva.</p>
+              <div class="product-meta">
+                <span class="price">Consultar</span>
+                <a class="mini-btn gold" href="https://wa.me/584245053694" target="_blank" rel="noopener noreferrer">Comprar</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="product-card reveal" data-cat="suplementos">
+            <div class="product-media"><div class="product-shape"></div></div>
+            <div class="product-body">
+              <span class="product-tag">Suplemento top</span>
+              <h3>Estructura lista para productos de alto movimiento.</h3>
+              <p>Ideal para creatinas, proteínas o líneas fitness de recompra.</p>
+              <div class="product-meta">
+                <span class="price">Consultar</span>
+                <a class="mini-btn gold" href="https://wa.me/584245053694" target="_blank" rel="noopener noreferrer">Consultar</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="product-card reveal" data-cat="accesorios">
+            <div class="product-media"><div class="product-shape"></div></div>
+            <div class="product-body">
+              <span class="product-tag">Accesorio top</span>
+              <h3>Una oferta completa también necesita complementos.</h3>
+              <p>Espacio para gorras, lentes, carteras y productos de ticket adicional.</p>
+              <div class="product-meta">
+                <span class="price">Consultar</span>
+                <a class="mini-btn gold" href="https://wa.me/584245053694" target="_blank" rel="noopener noreferrer">Ver más</a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="block" id="cta">
+      <div class="section-wrap">
+        <div class="cta-band reveal">
+          <div>
+            <div class="kicker">Compra rápida</div>
+            <h2>Todo debe empujar a una acción de venta.</h2>
+            <p>
+              Esta tienda está pensada para convertirse en una base real de ecommerce: productos, colecciones, enlaces comerciales y rutas de compra claras. Por ahora, el foco es guiar al usuario a la mejor acción posible.
+            </p>
+          </div>
+          <div class="cta-actions">
+            <a class="btn btn-primary" href="https://wa.me/584245053694" target="_blank" rel="noopener noreferrer">Comprar por WhatsApp</a>
+            <a class="btn btn-secondary" href="#" target="_blank" rel="noopener noreferrer">Mercado Libre</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div>
+        <strong style="display:block;color:var(--text);font-size:0.96rem;letter-spacing:0.22em;margin-bottom:6px;">NOVARO</strong>
+        <span>Shop premium orientado a venta.</span>
+      </div>
+      <div class="footer-links">
+        <a href="#categorias">Categorías</a>
+        <a href="#top-products">Top productos</a>
+        <a href="#cta">Compra rápida</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const revealElements = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    revealElements.forEach((el, index) => {
+      el.style.transitionDelay = `${Math.min(index * 55, 240)}ms`;
+      observer.observe(el);
+    });
+
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const productCards = document.querySelectorAll('.product-card');
+
+    filterButtons.forEach((button) => {
+      button.addEventListener('click', () => {
+        filterButtons.forEach((btn) => btn.classList.remove('active'));
+        button.classList.add('active');
+
+        const filter = button.dataset.filter;
+
+        productCards.forEach((card) => {
+          if (filter === 'all' || card.dataset.cat === filter) {
+            card.classList.remove('hidden');
+          } else {
+            card.classList.add('hidden');
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>
